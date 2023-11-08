@@ -36,7 +36,7 @@ app.post('/meetings', async (req, res) => {
 
 // Function to generate a meeting link
 function generateMeetingLink(meeting) {
-  const baseUrl = 'http://localhost:3000/meetings/';
+  const baseUrl =  `http://${process.env.baseUrl}/meetings/`;
   return `${baseUrl}${meeting._id}`;
 }
 
@@ -54,8 +54,7 @@ app.post('/new', async (req, res) => {
 
 app.post('/', async (req, res) => {
   try {
-
-    res.status(201).json({ meessage:"hell"});
+    res.status(201).json({ meessage:"Welcome to MeetMe"});
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
