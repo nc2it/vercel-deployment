@@ -36,7 +36,7 @@ app.post('/meetings', async (req, res) => {
 
 // Function to generate a meeting link
 function generateMeetingLink(meeting) {
-  const baseUrl = 'http://localhost:3003/meetings/';
+  const baseUrl = 'http://localhost:3000/meetings/';
   return `${baseUrl}${meeting._id}`;
 }
 
