@@ -52,6 +52,14 @@ app.post('/new', async (req, res) => {
   }
 });
 
+app.post('/', async (req, res) => {
+  try {
+
+    res.status(201).json({ meessage:"hell"});
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // Get All Meetings
 app.get('/meetings', async (req, res) => {
