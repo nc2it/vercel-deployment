@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 
 // MongoDB URI and connection
-const uri = process.env.MONGO_URI;
+const uri =  'mongodb+srv://meetme:hotjava@meet.iyufxz7.mongodb.net/?retryWrites=true&w=majority' //process.env.MONGO_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Could not connect to MongoDB', err));
@@ -104,7 +104,7 @@ app.delete('/meetings/:id', async (req, res) => {
   }
 });
 
-const port = 8080;
+const port = process.env.PORT || 3000; 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
