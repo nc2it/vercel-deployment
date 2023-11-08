@@ -104,7 +104,7 @@ app.delete('/meetings/:id', async (req, res) => {
   }
 });
 
-const port = 3003;
+const port = 8080;
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
