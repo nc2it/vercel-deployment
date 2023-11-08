@@ -1,9 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
+const nodemailer = require('nodemailer');
 
 const app = express();
 app.use(express.json());
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'vierafajnor@gmail.com',
+    pass: 'Chalais2005'
+  }
+});
 
 // MongoDB URI and connection
 const uri =  'mongodb+srv://meetme:hotjava@meet.iyufxz7.mongodb.net/?retryWrites=true&w=majority'//process.env.MONGO_URI;
@@ -36,7 +45,7 @@ app.post('/meetings', async (req, res) => {
 
 // Function to generate a meeting link
 function generateMeetingLink(meeting) {
-  const baseUrl =  `http://${process.env.baseUrl}/meetings/`;
+  const baseUrl =  `http://${process.env.uri}/meetings/`;
   return `${baseUrl}${meeting._id}`;
 }
 
@@ -46,6 +55,9 @@ app.post('/new', async (req, res) => {
     const meeting = new Meeting(req.body);
     const savedMeeting = await meeting.save();
     const meetingLink = generateMeetingLink(savedMeeting);
+
+    inviteByMail(savedMeeting);
+    
     res.status(201).json({ meeting: savedMeeting, link: meetingLink });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -102,6 +114,34 @@ app.delete('/meetings/:id', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+
+const inviteByMail= (meeting) => {
+  try {
+    // ... (existing code for creating a meeting)
+
+    // Send an email after the meeting is created
+    const mailOptions = {
+      from: 'your-email@gmail.com',
+      to: 'nchalais@gmail.com', // The email address of the participant
+      subject: 'New Meeting Created',
+      text: `A new meeting titled "${meeting.title}" has been created.`
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+    // ... (rest of your endpoint code)
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
 
 const port = process.env.PORT || 3000; 
 app.listen(port, () => {
