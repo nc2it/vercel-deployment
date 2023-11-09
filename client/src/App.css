@@ -1,38 +1,82 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  color: #333333; /* Dark grey for high contrast */
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #FFD700; /* Bright yellow, kept for vibrancy */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(8px + 2vmin);
+  color: #333333; /* Dark text for contrast */
+  padding: 20px;
+}
+
+form {
+  background: #FFFFFF; /* White background for high contrast */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #333333;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333333; /* Dark grey for readability */
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #BDBDBD; /* Light grey border for subtle contrast */
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  background: #FFFFFF; /* White background */
+  color: #333333; /* Dark text for readability */
+}
+
+button {
+  background-color: #4CAF50; /* Green for good visibility and contrast */
   color: white;
+  padding: 12px 24px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #388E3C; /* Darker shade of green */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive Styles for Smaller Screens */
+@media (max-width: 600px) {
+  .App-header {
+    font-size: calc(6px + 2vmin);
   }
-  to {
-    transform: rotate(360deg);
+
+  input[type="text"],
+  input[type="email"],
+  button {
+    font-size: 12px;
+    padding: 10px;
   }
 }
