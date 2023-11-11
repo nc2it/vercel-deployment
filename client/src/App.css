@@ -1,26 +1,27 @@
 .App {
   text-align: center;
-  color: #333333; /* Dark grey for high contrast */
+  color: #333; /* Dark text for contrast */
+  padding-left: 20px; /* Added padding to the left */
 }
 
 .App-header {
-  background-color: #FFD700; /* Bright yellow, kept for vibrancy */
+  background-color: #f9f9f9; /* Deep purple */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(8px + 2vmin);
-  color: #333333; /* Dark text for contrast */
+  color: white; /* White text for contrast */
   padding: 20px;
 }
 
 form {
-  background: #FFFFFF; /* White background for high contrast */
+  background: #f9f9f9; /* Light purple */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: #333333;
+  color: #333; /* Dark text for readability */
   width: 100%;
   max-width: 400px;
   margin: 20px auto;
@@ -36,23 +37,23 @@ form {
 label {
   margin-bottom: 5px;
   font-size: 14px;
-  color: #333333; /* Dark grey for readability */
+  color: #333; /* Dark text for readability */
 }
 
 input[type="text"],
 input[type="email"] {
   width: 100%;
   padding: 10px;
-  border: 1px solid #BDBDBD; /* Light grey border for subtle contrast */
+  border: 1px solid #9575CD; /* Medium purple */
   border-radius: 4px;
   box-sizing: border-box;
   font-size: 14px;
-  background: #FFFFFF; /* White background */
-  color: #333333; /* Dark text for readability */
+  background: #f9f9f9; /* Very light purple */
+  color: #333; /* Dark text for readability */
 }
 
 button {
-  background-color: #4CAF50; /* Green for good visibility and contrast */
+  background-color: #7E57C2; /* Bright purple */
   color: white;
   padding: 12px 24px;
   margin-top: 20px;
@@ -64,7 +65,7 @@ button {
 }
 
 button:hover {
-  background-color: #388E3C; /* Darker shade of green */
+  background-color: #673AB7; /* Darker shade of purple */
 }
 
 /* Responsive Styles for Smaller Screens */
@@ -79,4 +80,46 @@ button:hover {
     font-size: 12px;
     padding: 10px;
   }
+}
+
+.meetingDetailsContainer {
+  font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.meetingDetailsContainer h2 {
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.meetingDetailsContainer p {
+  margin: 10px 0;
+}
+
+.participant, .dateChoice, .locationChoice {
+  background-color: #fff;
+  border: 1px solid #eee;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+.dateChoice, .locationChoice {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dateChoice p, .locationChoice p {
+  margin: 0;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
 }
