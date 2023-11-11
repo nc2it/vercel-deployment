@@ -22,7 +22,7 @@ function App() {
         {/* A <Routes> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Routes>
-          <Route path="/" element={<div>ho</div>} />
+          <Route path="/" element={<Createmeeting />} />
           <Route path="/create" element={<Createmeeting />} />
           <Route path="/getyourlink" element={<ConfirmationLink />} />
           <Route path="/meetme/:id" element={<MeetingDetails/>} />

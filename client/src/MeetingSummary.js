@@ -18,6 +18,7 @@ export function MeetingSummary() {
   const navigate = useNavigate();
 
 
+
   useEffect(() => {
     async function fetchMeeting() {
       console.log("fetching" + params.id);
