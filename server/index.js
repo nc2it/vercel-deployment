@@ -12,10 +12,8 @@ import cors from 'cors';
 
 const app = express();
 app.use(express.json());
-app.use(cors({
-  origin: 'https://vercel-deployment-client-dun.vercel.app'
-}));
-//llllllll
+app.use(cors());
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   securre: false,
