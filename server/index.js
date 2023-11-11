@@ -12,7 +12,10 @@ import cors from 'cors';
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://vercel-deployment-client-dun.vercel.app'
+}));
+
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -293,7 +296,7 @@ async function sendMeetingInvite(meeting, meetingLink) {
       email: meeting.participants[0].email
     }
   });
- console.log("meeting.participants");
+
   const icsFileContent = calendar.toString();
 
   // Assuming meeting.participants is an array of participant objects
@@ -302,7 +305,7 @@ async function sendMeetingInvite(meeting, meetingLink) {
       from: 'your-email@gmail.com',
       to: participant.email, // Email address of the current participant
       subject: 'New Meeting Created ' + participant.email,
-      text: `Hello ${participant.email},\n\nA new meeting titled "${meeting.title}" has been created.,
+      text: `Hello ${participant.email},\n\nA new meeting titled "${meeting.title}" has been created`,
       attachments: [
         {
           filename: 'invite.ics',
