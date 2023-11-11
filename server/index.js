@@ -156,7 +156,7 @@ app.post('/meetings', async (req, res) => {
 
 // Function to generate a meeting link
 function generateMeetingLink(meeting) {
-  const baseUrl = `http://localhost:3000/meetme/`;
+  const baseUrl = `https://vercel-deployment-000.vercel.app/meetme/`;
   return `${baseUrl}${meeting._id}`;
 }
 
