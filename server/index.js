@@ -293,7 +293,7 @@ async function sendMeetingInvite(meeting, meetingLink) {
       email: meeting.participants[0].email
     }
   });
-
+ console.log("meeting.participants");
   const icsFileContent = calendar.toString();
 
   // Assuming meeting.participants is an array of participant objects
